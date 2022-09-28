@@ -5,8 +5,6 @@ include "function.php";
 $topics = get_topic();
 
 
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,8 +26,8 @@ $topics = get_topic();
         <div class="col">
             <?php
             if ($topics) {
-                ?>
-                <h3>Выберите тему</h3>
+            ?>
+            <h3>Выберите тему</h3>
             <form action="one.php" method="post">
                 <?php foreach ($topics as $topic) { ?>
                     <div class="form-check">
@@ -39,9 +37,8 @@ $topics = get_topic();
                             <?= $topic['topic'] ?>
                         </label>
                     </div>
-                    <!--                    <p><a href="?id=--><?//= $topic['id'] ?><!--">--><?//= $topic['topic'] ?><!--</a></p>-->
                 <?php }
-            } ?>
+                } ?>
 
 
                 <input class="btn btn-primary" type="submit" name="button" value="Начать тест">
@@ -52,7 +49,6 @@ $topics = get_topic();
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
