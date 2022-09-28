@@ -12,7 +12,11 @@ function get_topic()
         $data[] = $row;
     }
     return $data;
+}
+
+function get_topic_data($topic_id){
+ if(!$topic_id) return false;
+ global $connect;
 
 
 }
-

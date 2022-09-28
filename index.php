@@ -3,7 +3,6 @@ include "config.php";
 include "function.php";
 
 $topics = get_topic();
-print_r($topics);
 
 
 ?>
@@ -17,23 +16,40 @@ print_r($topics);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"></script>
 <body>
-<?php
-if ($topics) {
-    ?>
-<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-       Выберите тему
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <?php foreach ($topics as $topic) { ?>
-        <li><a href="?id=<?= $topic['id'] ?>"><?= $topic['topic'] ?></a></li>
-<!--        <p><a href="?id=--><?//= $topic['id'] ?><!--">--><?//= $topic['topic'] ?><!--</a></p>-->
-    <?php } ?>
-<?php } ?>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col">
+            <?php
+            if ($topics) {
+                ?>
+                <h3>Выберите тему</h3>
+            <form action="one.php" method="post">
+                <?php foreach ($topics as $topic) { ?>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="<?= $topic['id'] ?>"
+                               name="value" id="flexRadioDefault1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            <?= $topic['topic'] ?>
+                        </label>
+                    </div>
+                    <!--                    <p><a href="?id=--><?//= $topic['id'] ?><!--">--><?//= $topic['topic'] ?><!--</a></p>-->
+                <?php }
+            } ?>
 
 
+                <input class="btn btn-primary" type="submit" name="button" value="Начать тест">
+            </form>
+
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
 
 
 </body>
