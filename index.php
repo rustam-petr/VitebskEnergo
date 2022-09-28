@@ -5,6 +5,8 @@ include "function.php";
 $topics = get_topic();
 
 
+
+
 ?>
 <!doctype html>
 <html lang="en">
